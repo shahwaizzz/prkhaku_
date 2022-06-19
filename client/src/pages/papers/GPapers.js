@@ -10,7 +10,7 @@ const GPapers = (props) => {
   useEffect(() => {
     axios.get("http://localhost:5000/paper/").then((response) => {
       setData(response.data.papers);
-      console.log(data);
+      console.log(" console data data data : ", data);
       console.log("Response data", response.data);
     }).catch((error) => {
       console.log(error);
@@ -37,8 +37,8 @@ const GPapers = (props) => {
                             </tr>
                             </thead>
                             <tbody style={{backgroundColor: 'lightcyan'}}>
-                            {data && data.filter(item => item.class ==="Class 9").map(filteredClass => (
-                              <tr><td onClick={() => {
+                            {data && data.filter(item => item.class ==="Class 9").map((filteredClass, index) => (
+                              <tr key={index}><td onClick={() => {
                                 setSubject(filteredClass.subject)
                                 setPaperClass(filteredClass.class)
                                 setFile(filteredClass.paperDoc)
@@ -57,8 +57,8 @@ const GPapers = (props) => {
                             </tr>
                             </thead>
                             <tbody style={{backgroundColor: 'lightcyan'}}>
-                            {data && data.filter(item => item.class ==="Class 10").map(filteredClass => (
-                              <tr><td onClick={() => {
+                            {data && data.filter(item => item.class ==="Class 10").map((filteredClass, index) => (
+                              <tr key={index}><td onClick={() => {
                                 setSubject(filteredClass.subject)
                                 setPaperClass(filteredClass.class)
                                 setFile(filteredClass.paperDoc)
@@ -89,8 +89,8 @@ const GPapers = (props) => {
                             </tr>
                             </thead>
                             <tbody style={{backgroundColor: 'lightcyan'}}>
-                            {data && data.filter(item => item.class ==="Class 11").map(filteredClass => (
-                              <tr><td onClick={() => {
+                            {data && data.filter(item => item.class ==="Class 11").map((filteredClass, index) => (
+                              <tr key={index}><td onClick={() => {
                                 setSubject(filteredClass.subject)
                                 setPaperClass(filteredClass.class)
                                 setFile(filteredClass.paperDoc)
@@ -121,8 +121,8 @@ const GPapers = (props) => {
                             </tr>
                             </thead>
                             <tbody style={{backgroundColor: 'lightcyan'}}>
-                            {data && data.filter(item => item.class ==="Class 9").map(filteredClass => (
-                              <tr><td onClick={() => {
+                            {data && data.filter(item => item.class ==="Class 9").map((filteredClass, index) => (
+                              <tr key={index}><td onClick={() => {
                                 setSubject(filteredClass.subject)
                                 setPaperClass(filteredClass.class)
                                 setFile(filteredClass.paperDoc)

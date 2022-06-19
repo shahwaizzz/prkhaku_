@@ -1800,9 +1800,22 @@ nav .profile-details i {
 }
 
 
-
-
-
+.fnt-w900{
+  font-weight: 900;
+}
+.fnt-w900 b{
+  float: right;
+  font-size: 19px;
+}
+.ss-li:hover{
+  cursor: pointer;
+  font-weight: bold;
+}
+.tab-ss-td:hover{
+  cursor: pointer;
+  /* font-size: 17px; */
+  padding-left: 10px;
+}
 
 
 

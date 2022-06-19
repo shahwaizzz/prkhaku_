@@ -1,49 +1,46 @@
-import React,{useEffect, useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import {FaDiceSix} from 'react-icons/fa';
 import axios from 'axios';
 
 
-const TSeries = () => {
+const TSeries = (props) => {
+  // const [data, setData] = useState(null);
+  const {setNotesClass, setSubject, setNav} = props;
   const [data, setData] = useState(null);
-  const [class9, setClass9] = useState(null)
-  const [class10, setClass10] = useState(null)
-  const [class11, setClass11] = useState(null)
-  const [class12, setClass12] = useState(null)
-  const [sub9, setSub9] = useState(null)
-  const [sub10, setSub10] = useState(null)
-  const [sub11, setSub11] = useState(null)
-  const [sub12, setSub12] = useState(null)
-
+  const [sub9, setSub9] = useState(null);
+  const [sub10, setSub10] = useState(null);
+  const [sub11, setSub11] = useState(null);
+  const [sub12, setSub12] = useState(null);
 
   useEffect(() => {
     axios.get("http://localhost:5000/paper/").then((response) => {
       const dataArr = response.data.papers;
       console.log(dataArr)
-      const arr9th = dataArr.filter(item => item.class === "Class 9").map(filterdItem => filterdItem)
-      console.log(arr9th)
-      setClass9(arr9th)
-      const arr10th = dataArr.filter(item => item.class === "Class 10").map(filterdItem => filterdItem)
-      setClass10(arr10th)
-      const arr11th = dataArr.filter(item => item.class === "Class 11").map(filterdItem => filterdItem)
-      setClass11(arr11th)
-      const arr12th = dataArr.filter(item => item.class === "Class 12").map(filterdItem => filterdItem)
-      setClass12(arr12th)
+      // const arr9th = dataArr.filter(item => item.class === "Class 9").map(filterdItem => filterdItem)
+      // console.log(arr9th)
+      // setClass9(arr9th)
+      // const arr10th = dataArr.filter(item => item.class === "Class 10").map(filterdItem => filterdItem)
+      // setClass10(arr10th)
+      // const arr11th = dataArr.filter(item => item.class === "Class 11").map(filterdItem => filterdItem)
+      // setClass11(arr11th)
+      // const arr12th = dataArr.filter(item => item.class === "Class 12").map(filterdItem => filterdItem)
+      // setClass12(arr12th)
       
-      console.log("9th Class Array : ", class9);
-      console.log("10th Class Array : ", class10);
-      console.log("11th Class Array : ", class11);
-      console.log("12th Class Array : ", class12);
+      // console.log("9th Class Array : ", class9);
+      // console.log("10th Class Array : ", class10);
+      // console.log("11th Class Array : ", class11);
+      // console.log("12th Class Array : ", class12);
       setData(response.data.papers);
       console.log(data);
 
-      const filter9 = [...new Set(class9.map((item) => {return item.subject}))];
+      const filter9 = [...new Set(dataArr && dataArr.filter(class9th => class9th.class === "Class 9").map((item) => {return item.subject}))];
       console.log("Filter 9th", filter9)
-      const filter10 = [...new Set(class10.map((item) => {return item.subject}))];
+      const filter10 = [...new Set(dataArr && dataArr.filter(class10th => class10th.class === "Class 10").map((item) => {return item.subject}))];
       console.log("Filter 10th", filter10)
-      const filter11 = [...new Set(class11.map((item) => {return item.subject}))];
+      const filter11 = [...new Set(dataArr && dataArr.filter(class11th => class11th.class === "Class 11").map((item) => {return item.subject}))];
       console.log("Filter 11th", filter11)
-      const filter12 = [...new Set(class12.map((item) => {return item.subject}))];
+      const filter12 = [...new Set(dataArr && dataArr.filter(class12th => class12th.class === "Class 12").map((item) => {return item.subject}))];
       console.log("Filter 12th", filter12)
       setSub9(filter9)
       setSub10(filter10)
@@ -54,8 +51,6 @@ const TSeries = () => {
       console.log("10th class subjects : ", sub10)
       console.log("11th class subjects : ", sub11)
       console.log("12th class subjects : ", sub12)
-
-
     }).catch((error) => {
       console.log(error);
     })     
@@ -80,8 +75,15 @@ const TSeries = () => {
                             </tr>
                             </thead>
                             <tbody style={{backgroundColor: 'lightcyan'}}>
-                            {data && data.filter(item => item.class ==="Class 9").map((filteredClass, index) => (
+                            {/* {data && data.filter(item => item.class ==="Class 9").map((filteredClass, index) => (
                               <tr key={index}><td>{filteredClass.subject}</td></tr>
+                            ))} */}
+                            {sub9 && sub9.map((filteredClass, index) => (
+                              <tr key={index}><td onClick={() => {
+                                setNotesClass('Class 9');
+                                setSubject(filteredClass)
+                                setNav(6);
+                              }}>{filteredClass}</td></tr>
                             ))}
                             {/* <tr><td>English Urdu MAth</td></tr>
                             <tr><td>English</td></tr>
@@ -108,9 +110,16 @@ const TSeries = () => {
                             </tr>
                             </thead>
                             <tbody style={{backgroundColor: 'lightcyan'}}>
-                            {data && data.filter(item => item.class ==="Class 10").map((filteredClass, index) => (
-                              <tr key={index}><td>{filteredClass.subject}</td></tr>
+                            {sub10 && sub10.map((filteredClass, index) => (
+                              <tr key={index}><td onClick={() => {
+                                setNotesClass('Class 10');
+                                setSubject(filteredClass)
+                                setNav(6);
+                              }}>{filteredClass}</td></tr>
                             ))}
+                            {/* {data && data.filter(item => item.class ==="Class 10").map((filteredClass, index) => (
+                              <tr key={index}><td>{filteredClass.subject}</td></tr>
+                            ))} */}
                             {/* <tr><td>English</td></tr>
                             <tr><td>English</td></tr>
                             <tr><td>Urdu</td></tr>
@@ -134,8 +143,15 @@ const TSeries = () => {
                             </tr>
                             </thead>
                             <tbody style={{backgroundColor: 'lightcyan'}}>
-                            {data && data.filter(item => item.class ==="Class 11").map((filteredClass, index) => (
+                            {/* {data && data.filter(item => item.class ==="Class 11").map((filteredClass, index) => (
                               <tr key={index}><td>{filteredClass.subject}</td></tr>
+                            ))} */}
+                            {sub11 && sub11.map((filteredClass, index) => (
+                              <tr key={index}><td onClick={() => {
+                                setNotesClass('Class 11');
+                                setSubject(filteredClass)
+                                setNav(6);
+                              }}>{filteredClass}</td></tr>
                             ))}
                             </tbody>
                         </table>
@@ -148,8 +164,15 @@ const TSeries = () => {
                             </tr>
                             </thead>
                             <tbody style={{backgroundColor: 'lightcyan'}}>
-                            {data && data.filter(item => item.class ==="Class 12").map((filteredClass, index) => (
+                            {/* {data && data.filter(item => item.class ==="Class 12").map((filteredClass, index) => (
                               <tr key={index}><td>{filteredClass.subject}</td></tr>
+                            ))} */}
+                            {sub12 && sub12.map((filteredClass, index) => (
+                              <tr key={index}><td onClick={() => {
+                                setNotesClass('Class 12');
+                                setSubject(filteredClass)
+                                setNav(6);
+                              }}>{filteredClass}</td></tr>
                             ))}
                             {/* <tr><td>English</td></tr>
                             <tr><td>Urdu</td></tr>

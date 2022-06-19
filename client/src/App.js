@@ -50,6 +50,7 @@ function App() {
   const [chap, setChap] = useState(null);
   const [title, setTitle] = useState(null);
   const [paperClass, setPaperClass] = useState(null);
+  const [ssClass, setSSClass] = useState(null);
   const [paperType, setPaperType] = useState(null)
 
 
@@ -124,7 +125,7 @@ function App() {
               <>
                 <Papers setPaper={setPaper} paper={paper} />
                 {paper === 0 ? (
-                  <TSeries />
+                  <TSeries setNotesClass={setNotesClass} setSubject={setSubject} setNav={setNav} />
                 ) : paper === 1 ? (
                   <GPapers setNav={setNav} setFile={setFile} setPaperType={setPaperType} setPaperClass={setPaperClass} setSubject={setSubject} />
                 ) : (
@@ -134,14 +135,14 @@ function App() {
               </>
             ) : nav === 11 ? (
               <>
-                <SScheme />
+                <SScheme setNav={setNav} setFile={setFile} setSSClass={setSSClass} setSubject={setSubject} />
               </>
             ) : nav === 12 ? (
               <Signup />
             ) : nav === 13 ? (
               <Login />
             ) : nav === 14 ? (
-              <PdfView file={file} subject={subject} paperClass={paperClass} paperType={paperType} notesClass={notesClass} chap={chap} title={title}  />
+              <PdfView file={file} subject={subject}ssClass={ssClass}  paperClass={paperClass} paperType={paperType} notesClass={notesClass} chap={chap} title={title}  />
             ) : (
               ""
             )}

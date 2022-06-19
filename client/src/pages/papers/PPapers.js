@@ -36,20 +36,16 @@ const PPapers = () => {
                             {/* {data && data.filter(item => item.board ==="Class 9").map(filteredClass => (
                               <tr><td>{filteredClass.subject}</td></tr>
                             ))} */}
-                            <tr><td>English Urdu MAth</td></tr>
-                            <tr><td>English</td></tr>
-                            <tr><td>Urdu</td></tr>
-                            <tr><td>Mathematics</td></tr>
-                            <tr><td>Physics</td></tr>
-                            <tr><td>Physics</td></tr>
-                            <tr><td>Physics</td></tr>
-                            <tr><td>Biology</td></tr>
-                            <tr><td>Pakistan Studies</td></tr>
-                            <tr><td>Chemistry</td></tr>
-                            <tr><td>Civics</td></tr>
-                            <tr><td>Civics</td></tr>
-                            <tr><td>Civics</td></tr>
-                            <tr><td>English</td></tr>
+                            <tr><td>BISE Lahore</td></tr>
+                            <tr><td>BISE Multan</td></tr>
+                            <tr><td>BISE Sahiwal</td></tr>
+                            <tr><td>BISE Rawalpindi</td></tr>
+                            <tr><td>BISE DG Khan</td></tr>
+                            <tr><td>BISE Gujranwala</td></tr>
+                            <tr><td>BISE Faisalabad</td></tr>
+                            <tr><td>BISE Sargodha</td></tr>
+                            <tr><td>BISE Bahawalpur</td></tr>
+                            <tr><td>BISE Federal</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -61,18 +57,16 @@ const PPapers = () => {
                             </tr>
                             </thead>
                             <tbody style={{backgroundColor: 'lightcyan'}}>
-                            <tr><td>English</td></tr>
-                            <tr><td>English</td></tr>
-                            <tr><td>Urdu</td></tr>
-                            <tr><td>Mathematics</td></tr>
-                            <tr><td>Physics</td></tr>
-                            <tr><td>Biology</td></tr>
-                            <tr><td>Pakistan Studies</td></tr>
-                            <tr><td>Chemistry</td></tr>
-                            <tr><td>Chemistry</td></tr>
-                            <tr><td>Chemistry</td></tr>
-                            <tr><td>Civics</td></tr>
-                            <tr><td>English</td></tr>
+                            <tr><td>BISE Peshawar</td></tr>
+                            <tr><td>BISE Kohat</td></tr>
+                            <tr><td>BISE Malakand</td></tr>
+                            <tr><td>BISE Bannu</td></tr>
+                            <tr><td>BISE DG Khan</td></tr>
+                            <tr><td>BISE Sawat</td></tr>
+                            <tr><td>BISE Mardan</td></tr>
+                            <tr><td>BISE Abbottabad</td></tr>
+                            <tr><td>BISE DI Khan</td></tr>
+                            <tr><td>BISE Federal</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -84,18 +78,17 @@ const PPapers = () => {
                             </tr>
                             </thead>
                             <tbody style={{backgroundColor: 'lightcyan'}}>
-                            <tr><td>English</td></tr>
-                            <tr><td>English</td></tr>
-                            <tr><td>Urdu</td></tr>
+                            <tr><td>BISE Karachi</td></tr>
+                            <tr><td>BISE Hyderabad</td></tr>
+                            <tr><td>BISE Mirpurkhas</td></tr>
+                            <tr><td>BISE Shukkur</td></tr>
                             <tr><td>Mathematics</td></tr>
-                            <tr><td>Mathematics</td></tr>
-                            <tr><td>Mathematics</td></tr>
-                            <tr><td>Physics</td></tr>
-                            <tr><td>Biology</td></tr>
-                            <tr><td>Pakistan Studies</td></tr>
-                            <tr><td>Chemistry</td></tr>
-                            <tr><td>Civics</td></tr>
-                            <tr><td>English</td></tr>
+                            <tr><td>BISE Larkana</td></tr>
+                            {/* <tr><td> </td></tr>
+                            <tr><td> </td></tr>
+                            <tr><td>  </td></tr>
+                            <tr><td> </td></tr>
+                            <tr><td> </td></tr> */}
                             </tbody>
                         </table>
                     </div>
@@ -107,10 +100,7 @@ const PPapers = () => {
                             </tr>
                             </thead>
                             <tbody style={{backgroundColor: 'lightcyan'}}>
-                            <tr><td>Urdu</td></tr>
-                            <tr><td>Mathematics</td></tr>
-                            <tr><td>Physics</td></tr>
-                            <tr><td>Biology</td></tr>
+                            <tr><td>BISE Quetta</td></tr>
                             </tbody>
                         </table>
                         <table className='table1 mt-5'>
@@ -120,10 +110,7 @@ const PPapers = () => {
                             </tr>
                             </thead>
                             <tbody style={{backgroundColor: 'lightcyan'}}>
-                            <tr><td>English</td></tr>
-                            <tr><td>Urdu</td></tr>
-                            <tr><td>Chemistry</td></tr>
-                            <tr><td>Civics</td></tr>
+                            <tr><td>BISE AJK</td></tr>
                             </tbody>
                         </table>
                     </div>
