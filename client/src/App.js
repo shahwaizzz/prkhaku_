@@ -52,7 +52,7 @@ function App() {
   const [paperClass, setPaperClass] = useState(null);
   const [ssClass, setSSClass] = useState(null);
   const [paperType, setPaperType] = useState(null)
-
+  const [board, setBoard] = useState(null)
 
   return (
     <Routes>
@@ -129,7 +129,7 @@ function App() {
                 ) : paper === 1 ? (
                   <GPapers setNav={setNav} setFile={setFile} setPaperType={setPaperType} setPaperClass={setPaperClass} setSubject={setSubject} />
                 ) : (
-                  <PPapers />
+                  <PPapers setNav={setNav} setPaperClass={setPaperClass} setBoard={setBoard} />
                 )}
                 <Comments className='mt-5' />
               </>
