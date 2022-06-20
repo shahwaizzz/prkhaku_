@@ -5,6 +5,7 @@ const Notes = require("../models/notes-model");
 const News = require("../models/news-model");
 const Paper = require("../models/paper-model");
 const studySchemeModel = require("../models/study-scheme-model");
+const Student = require("../models/student-model");
 //-------- Ebooks -------------
 const createEbook = async (req, res) => {
   console.log("in create ebook");
@@ -219,22 +220,29 @@ const deleteStudyScheme = async (req, res) => {
 const downloadPDF = async (req, res) => {
   const id = req.params.id;
   const notes = await Notes.findOne({ _id: id });
-  if (notes !== " ") {
+  if (notes) {
     return res.sendfile(notes.notesDoc);
   }
   const ebook = await Ebook.findOne({ _id: id });
-  if (ebook !== " ") {
+  if (ebook) {
     return res.sendfile(ebook.ebookDoc);
   }
   const studyscheme = await studySchemeModel.findOne({ _id: id });
-  if (studyscheme !== " ") {
+  if (studyscheme) {
     return res.sendfile(studyscheme.studySchemeDoc);
   }
   const paper = await Paper.findOne({ _id: id });
-  if (paper !== " ") {
+  if (paper) {
     return res.sendfile(paper.paperDoc);
   }
   res.status(StatusCodes.OK).json({ msg: "No file found" });
+};
+const getUsers = async (req, res) => {
+  const users = await Student.find({});
+  if (users.length === 0) {
+    throw new NotFoundError("No Students Found");
+  }
+  res.status(StatusCodes.OK).json({ users });
 };
 
 module.exports = {
@@ -266,4 +274,5 @@ module.exports = {
   editStudyScheme,
   deleteStudyScheme,
   downloadPDF,
+  getUsers,
 };

@@ -13,6 +13,12 @@ const studySchemeSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please Provide Subject"],
   },
+  comments: [
+    {
+      comment: String,
+      studentName: String,
+    },
+  ],
   studySchemeDoc: {
     type: String,
     required: [true, "Please Provide Study Scheme Document"],

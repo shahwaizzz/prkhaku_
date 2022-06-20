@@ -11,6 +11,7 @@ const adminAuthRoutes = require("./routes/admin-auth-routes");
 const studentAuthRoutes = require("./routes/student-auth-routes");
 const adminRoutes = require("./routes/admin-routes");
 const studyschemeRoutes = require("./routes/study-scheme-routes");
+const studentRoutes = require("./routes/student-routes");
 const cors = require("cors");
 
 app.use(morgan("dev"));
@@ -48,6 +49,7 @@ app.use("/auth/student", studentAuthRoutes);
 app.use("/notes", notesRoutes);
 app.use("/paper", paperRoutes);
 app.use("/studyscheme", studyschemeRoutes);
+app.use("/student", studentRoutes);
 // not found middleware
 app.use(notFoundMiddleware);
 // app.use((req, res, next) => {

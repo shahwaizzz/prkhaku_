@@ -15,6 +15,12 @@ const notesSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please Provide Class"],
   },
+  comments: [
+    {
+      comment: String,
+      studentName: String,
+    },
+  ],
   chapter: {
     type: String,
     required: [true, "Please Provide Chapter"],

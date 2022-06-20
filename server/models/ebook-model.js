@@ -11,6 +11,12 @@ const ebookSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please Provide Category"],
   },
+  comments: [
+    {
+      comment: String,
+      studentName: String,
+    },
+  ],
   ebookImage: {
     type: String,
     required: [true, "Please Provide Image"],

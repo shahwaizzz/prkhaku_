@@ -14,6 +14,12 @@ const paperSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please Provide Paper Documents"],
   },
+  comments: [
+    {
+      comment: String,
+      studentName: String,
+    },
+  ],
 });
 
 module.exports = mongoose.model("Paper", paperSchema);
