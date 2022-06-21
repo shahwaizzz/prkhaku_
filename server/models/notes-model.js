@@ -15,6 +15,10 @@ const notesSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please Provide Class"],
   },
+  description: {
+    type: String,
+    required: true,
+  },
   comments: [
     {
       comment: String,

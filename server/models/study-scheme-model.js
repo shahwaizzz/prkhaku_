@@ -9,6 +9,10 @@ const studySchemeSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please Provide Category"],
   },
+  description: {
+    type: String,
+    required: true,
+  },
   subject: {
     type: String,
     required: [true, "Please Provide Subject"],
