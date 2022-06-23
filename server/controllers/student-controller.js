@@ -2,6 +2,8 @@ const Ebook = require("../models/ebook-model");
 const Paper = require("../models/paper-model");
 const Notes = require("../models/notes-model");
 const StudyScheme = require("../models/study-scheme-model");
+const News = require("../models/news-model");
+const Newsletter = require("../models/newsletter-emails-model");
 const { StatusCodes } = require("http-status-codes");
 const { NotFoundError } = require("../errors");
 const ebookComment = async (req, res) => {
@@ -61,10 +63,58 @@ const studyschemeComment = async (req, res) => {
   }
   res.status(StatusCodes.OK).json({ msg: "Comment Added" });
 };
+const signupNewsletter = async (req, res) => {
+  const email = Newsletter.create(req.body);
+  res
+    .status(StatusCodes.OK)
+    .json({ msg: "Congratulations! Signed up as newslettter" });
+};
+const search = async (req, res) => {
+  const searchquery = req.query.query;
+  const ebook = await Ebook.find({
+    $or: [
+      { title: { $regex: searchquery, $options: "$i" } },
+      { category: { $regex: searchquery, $options: "$i" } },
+    ],
+  });
+  const notes = await Notes.find({
+    $or: [
+      { title: { $regex: searchquery, $options: "$i" } },
+      { subject: { $regex: searchquery, $options: "$i" } },
+      { class: { $regex: searchquery, $options: "$i" } },
+    ],
+  });
+  const news = await News.find({
+    $or: [
+      { title: { $regex: searchquery, $options: "$i" } },
+      { description: { $regex: searchquery, $options: "$i" } },
+      { category: { $regex: searchquery, $options: "$i" } },
+    ],
+  });
+  const studyscheme = await StudyScheme.find({
+    $or: [
+      { class: { $regex: searchquery, $options: "$i" } },
+      { category: { $regex: searchquery, $options: "$i" } },
+      { subject: { $regex: searchquery, $options: "$i" } },
+    ],
+  });
+  const papers = await Paper.find({
+    $or: [
+      { board: { $regex: searchquery, $options: "$i" } },
+      { subject: { $regex: searchquery, $options: "$i" } },
+      { class: { $regex: searchquery, $options: "$i" } },
+      { type: { $regex: searchquery, $options: "$i" } },
+      { university: { $regex: searchquery, $options: "$i" } },
+    ],
+  });
 
+  res.status(StatusCodes.OK).json({ ebook, notes, news, studyscheme, papers });
+};
 module.exports = {
   ebookComment,
   paperComment,
   notesComment,
   studyschemeComment,
+  signupNewsletter,
+  search,
 };
