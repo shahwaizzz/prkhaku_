@@ -23,6 +23,7 @@ const notesSchema = new mongoose.Schema({
     {
       comment: String,
       studentName: String,
+      likes: Number,
     },
   ],
   chapter: {

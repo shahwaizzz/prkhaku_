@@ -19,6 +19,7 @@ const ebookSchema = new mongoose.Schema({
     {
       comment: String,
       studentName: String,
+      likes: Number,
     },
   ],
   ebookImage: {

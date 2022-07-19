@@ -22,6 +22,7 @@ const paperSchema = new mongoose.Schema({
     {
       comment: String,
       studentName: String,
+      likes: Number,
     },
   ],
 });

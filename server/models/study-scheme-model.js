@@ -21,6 +21,7 @@ const studySchemeSchema = new mongoose.Schema({
     {
       comment: String,
       studentName: String,
+      likes: Number,
     },
   ],
   studySchemeDoc: {

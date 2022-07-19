@@ -63,11 +63,53 @@ const studyschemeComment = async (req, res) => {
   }
   res.status(StatusCodes.OK).json({ msg: "Comment Added" });
 };
+const likePaperComment = async (req, res) => {
+  const likes = await Paper.findOneAndUpdate(
+    { _id: req.body.id, "comments._id": req.body.commentId },
+    { $inc: { "comments.$.likes": 1 } }
+  );
+  res.status(StatusCodes.OK).json({ msg: "Comment Liked" });
+};
+const likeStudySchemeComment = async (req, res) => {
+  const likes = await StudyScheme.findOneAndUpdate(
+    { _id: req.body.id, "comments._id": req.body.commentId },
+    { $inc: { "comments.$.likes": 1 } }
+  );
+  res.status(StatusCodes.OK).json({ msg: "Comment Liked" });
+};
+const likeEbookComment = async (req, res) => {
+  const likes = await Ebook.findOneAndUpdate(
+    { _id: req.body.id, "comments._id": req.body.commentId },
+    { $inc: { "comments.$.likes": 1 } }
+  );
+  res.status(StatusCodes.OK).json({ msg: "Comment Liked" });
+};
+const likeNotesComment = async (req, res) => {
+  const likes = await Notes.findOneAndUpdate(
+    { _id: req.body.id, "comments._id": req.body.commentId },
+    { $inc: { "comments.$.likes": 1 } }
+  );
+  res.status(StatusCodes.OK).json({ msg: "Comment Liked" });
+};
 const signupNewsletter = async (req, res) => {
   const email = Newsletter.create(req.body);
   res
     .status(StatusCodes.OK)
     .json({ msg: "Congratulations! Signed up as newslettter" });
+};
+const getAllNews = async (req, res) => {
+  const news = await News.find({});
+  if (news.length === 0) {
+    throw new NotFoundError("No News Found");
+  }
+  res.status(StatusCodes.OK).json({ news });
+};
+const getNewsByCategory = async (req, res) => {
+  const news = await News.find({ category: req.query.category });
+  if (news.length === 0) {
+    throw new NotFoundError("No News Found");
+  }
+  res.status(StatusCodes.OK).json({ news });
 };
 const search = async (req, res) => {
   const searchquery = req.query.query;
@@ -116,5 +158,11 @@ module.exports = {
   notesComment,
   studyschemeComment,
   signupNewsletter,
+  getAllNews,
+  getNewsByCategory,
+  likePaperComment,
+  likeEbookComment,
+  likeNotesComment,
+  likeStudySchemeComment,
   search,
 };
