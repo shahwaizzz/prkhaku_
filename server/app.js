@@ -65,7 +65,9 @@ const PORT = process.env.PORT || 5000;
 
 const start = async (req, res) => {
   try {
-    await connectDb(process.env.MONGO_URI);
+    await connectDb(
+      "mongodb+srv://shahwaiz:JCdUqcyl1nfW75B7@taskmanager.an4it.mongodb.net/prhaku?retryWrites=true&w=majority"
+    );
     app.listen(PORT, console.log(`server is listening on port ${PORT} `));
   } catch (error) {
     console.log(error);
